@@ -1,0 +1,59 @@
+create database task;
+use task;
+
+   create table emp1(
+   ID int, 
+   empName VARCHAR(100),
+   designation VARCHAR(100),
+   department varchar(100),
+   salary int);
+   insert into emp1(ID,empName,designation,department,salary) values (001,"kalai","Tester","QA",35000);
+   insert into emp1(ID,empName,designation,department,salary) values (002,"selvi","Tester","QA",30000);
+   insert into emp1(ID,empName,designation,department,salary) values (003,"naveen","Developer","DEV",30000);
+   insert into emp1(ID,empName,designation,department,salary) values (004,"lali","senior QA","QA",25000);
+   insert into emp1(ID,empName,designation,department,salary) values (005,"mani","junior developer","DEV",35000);
+   insert into emp1(ID,empName,designation,department,salary) values (006,"vijay","developer","DEV",25000);
+   insert into emp1(ID,empName,designation,department,salary) values (007,"malar","front_Developer","DEV",25000);
+   
+    create table emp2(
+   ID int, 
+   adress varchar(250)
+   );
+   insert into emp2(ID,adress) values(001,"Vadapalani");
+   insert into emp2(ID,adress) values(002,"chromepet");
+   insert into emp2(ID,adress) values(003,"Vadapalani");
+   insert into emp2(ID,adress) values(004,"tambaram");
+   insert into emp2(ID,adress) values(005,"adyar");
+   insert into emp2(ID,adress) values(006,"Velachery");
+   insert into emp2(ID,adress) values(007,"guindy");
+   
+  select *from emp1;
+  select *from emp2;
+  
+select Max(salary) from emp1 group by department;
+    /* output:
+    65000
+	35000
+    */
+select emp1.empName, emp2.adress from emp1 inner join emp2 on emp1.ID = emp2.ID;
+/* output:
+kalai	Vadapalani
+selvi	chromepet
+naveen	Vadapalani
+lali	tambaram
+mani	guindy
+mani	adyar
+vijay	Velachery
+malar	guindy
+lali	tambaram
+lali	tambaram
+*/
+
+select *from emp1 limit 5;
+/*
+1	kalai	Tester	QA	35000
+2	selvi	Tester	QA	30000
+3	naveen	Developer	DEV	30000
+4	lali	senior QA	QA	65000
+7	mani	junior developer	DEV	35000
+*/
